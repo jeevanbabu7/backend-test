@@ -6,6 +6,30 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  useState(() => {
+    console.log('Hello World!');
+    
+    try {
+      const fetchData = async () => {
+        const response = await fetch('https://backend-test-silk.vercel.app/', {
+          type: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json()
+        console.log(data)
+      }
+      console.log('fetching data...');
+      
+      fetchData();
+    }catch (error) {
+      console.error(error);
+    }
+
+
+  }, []);
+
   return (
     <>
       <div>
