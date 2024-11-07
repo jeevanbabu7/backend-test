@@ -4,8 +4,9 @@ const app = express();
 
 const port = 3000;
 
-app.use(cors());
-
+app.use(cors({
+    origin: 'http://localhost:5173', // Update with your frontend's URL
+  }));
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
